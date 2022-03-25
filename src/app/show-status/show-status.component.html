@@ -1,0 +1,8 @@
+<div class="img" [ngStyle]="{backgroundColor: getColor()}" (click)="onServerStatus()">
+  <h5>
+    <span style="color:darkblue">{{'Server'}}</span> with ID
+    <span style="color:darkblue">{{id}}</span> is
+    <span style="color:darkblue">{{getServerStats()}}</span>
+  </h5>
+</div>
+

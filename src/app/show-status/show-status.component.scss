@@ -1,0 +1,14 @@
+.img {
+  margin: 10px auto;
+  width: 100%;
+  min-height: 50px;
+  color: #333;
+  border-radius: 2px;
+  border:1px solid #888 ;
+  :hover{
+    cursor: pointer;
+  }
+  h5{
+    margin: 20px;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>I'm in the AppComponent</h3>
+      <ol>
+        <li>Create two new Components (manually or with CLI): WarningAlert and SuccessAlert</li>
+        <li>Output them beneath each other in the AppComponent</li>
+        <li>Output a warning or success message in the Components</li>
+        <li>Style the Components appropriately (maybe some red/ green text?)</li>
+      </ol>
+      <p>Use external or internal templates and styles!</p>
+      <p>Feel free to create more components, nest them into each other or play around with different types of
+        selectors!</p>
+      <button (click)="onSelect()">按我</button>
+      <hr>
+      <div class="show">
+        <app-server *ngIf="select"></app-server>
+        <app-servers *ngIf="!select"></app-servers>
+      </div>
+      <app-servers></app-servers>
+      <app-server></app-server>
+
+      <p [innerText]="!this.ServerPassword || !this.ServerName"></p>
+      <label>UserName:</label>
+      <input type="text" class="form-control" (input)="onUpdateServerName($event)"><br>
+      <label>PassWord:</label>
+      <input type="password" class="form-control" style="margin-top: 10px;" [(ngModel)]="ServerPassword">
+      <div *ngIf="ServerName||ServerPassword else noServer">
+        <p>我的名稱:{{ServerName}}</p>
+        <p>我的密碼:{{ServerPassword}}</p>
+      </div>
+      <ng-template #noServer>
+        <p>{{serverCreationStatus}}</p>
+      </ng-template>
+      <button class="btn btn-primary" [disabled]="onDisabled()" (click)="onCreateServer()">Reset</button>
+      <table>
+        <tr *ngFor="let list of servers" [ngStyle]="{color:list?.userName==='123' ? 'blue':'red' }">
+          <td [innerText]="'帳號:'+list?.userName"></td>
+          <td [innerText]="'密碼'+list?.passWord"></td>
+        </tr>
+      </table>
+      <app-show-status></app-show-status>
+
+    </div>
+  </div>
+</div>
